@@ -4514,6 +4514,7 @@ static const struct panel_desc_dsi lgd_incell_m2db7400 = {
 			.width = 66,
 			.height = 117,
 		},
+		.connector_type = DRM_MODE_CONNECTOR_DSI,
 	},
 	.flags = MIPI_DSI_MODE_VIDEO | MIPI_DSI_MODE_EOT_PACKET,
 	.format = MIPI_DSI_FMT_RGB888,
