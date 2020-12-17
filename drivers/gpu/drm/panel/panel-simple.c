@@ -4371,6 +4371,7 @@ static const struct panel_desc_dsi samsung_s6e8aa5x01_ams497hy01 = {
 			.width = 62,
 			.height = 106,
 		},
+		.connector_type = DRM_MODE_CONNECTOR_DSI,
 	},
 	.flags = MIPI_DSI_MODE_VIDEO | MIPI_DSI_MODE_VIDEO_BURST,
 	.format = MIPI_DSI_FMT_RGB888,
