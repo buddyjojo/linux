@@ -100,7 +100,7 @@
 	pinctrl-1 = <&mdss_sleep>;
 
 	panel@0 {
-		compatible = "mdss,s6d78a0-gh9607501a";
+		compatible = "samsung,s6d78a0-gh9607501a";
 		reg = <0>;
 
 		reset-gpios = <&msmgpio 25 GPIO_ACTIVE_LOW>;
