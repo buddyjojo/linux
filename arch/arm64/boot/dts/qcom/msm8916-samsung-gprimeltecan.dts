@@ -18,6 +18,18 @@
 	chosen {
 		stdout-path = "serial0";
 	};
+		reg_lcd: regulator-lcd {
+		compatible = "regulator-fixed";
+		regulator-name = "lcd_ldo";
+		regulator-min-microvolt = <5400000>;
+		regulator-max-microvolt = <5400000>;
+
+		gpio = <&msmgpio 102 GPIO_ACTIVE_HIGH>;
+		enable-active-high;
+
+		pinctrl-names = "default";
+		pinctrl-0 = <&reg_lcd_en_default>;
+	};
 	
 	reserved-memory {
 		/* Additional memory used by Samsung firmware modifications */
@@ -100,9 +112,10 @@
 	pinctrl-1 = <&mdss_sleep>;
 
 	panel@0 {
-		compatible = "mdss,s6d78a0-gh9607501a";
+		compatible = "samsung,s6d78a0-gh9607501a";
 		reg = <0>;
-
+		vreg-supply = <&pm8916_l6>;
+		vdd-supply = <&reg_lcd>;
 		reset-gpios = <&msmgpio 25 GPIO_ACTIVE_LOW>;
 
 		port {
@@ -235,6 +248,14 @@
 };
 
 &msmgpio {
+
+	reg_lcd_en_default: reg_lcd_en_default {
+		pins = "gpio102";
+		function = "gpio";
+
+		drive-strength = <2>;
+		bias-disable;
+	};
 
 	mdss {
 		mdss_default: mdss-default {
