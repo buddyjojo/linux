@@ -21,8 +21,8 @@
 		reg_lcd: regulator-lcd {
 		compatible = "regulator-fixed";
 		regulator-name = "lcd_ldo";
-		regulator-min-microvolt = <5400000>;
-		regulator-max-microvolt = <5400000>;
+		regulator-min-microvolt = <3000000>;
+		regulator-max-microvolt = <3000000>;
 
 		gpio = <&msmgpio 102 GPIO_ACTIVE_HIGH>;
 		enable-active-high;
