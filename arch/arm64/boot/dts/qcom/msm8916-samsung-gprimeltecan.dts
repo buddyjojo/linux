@@ -108,8 +108,8 @@
 
 &dsi0 {
 	pinctrl-names = "default", "sleep";
-	pinctrl-0 = <&mdss_default>;
-	pinctrl-1 = <&mdss_sleep>;
+	pinctrl-0 = <&mdss_default &bl_hack>;
+	pinctrl-1 = <&mdss_sleep &bl_hack>;
 
 	panel@0 {
 		compatible = "samsung,s6d78a0_gh9607501a";
@@ -255,6 +255,15 @@
 
 		drive-strength = <2>;
 		bias-disable;
+	};
+	
+	bl_hack: bl-hack {
+		pins = "gpio50", "gpio98";
+		function = "gpio";
+
+		drive-strength = <2>;
+		bias-disable;
+		output-high;
 	};
 
 	mdss {
