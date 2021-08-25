@@ -103,7 +103,7 @@
 		interrupt-parent = <&msmgpio>;
 		interrupts = <13 IRQ_TYPE_EDGE_FALLING>;
 		pinctrl-names = "default";
-		pinctrl-0 = <&tsp_default>;
+		pinctrl-0 = <&tsp_int_default>;
 		vdd-supply = <&reg_vdd_tsp>;
 		vddo-supply = <&pm8916_l6>;
 		touchscreen-size-x = <540>;
