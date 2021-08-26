@@ -24,7 +24,6 @@
 		regulator-name = "lcd_ldo";
 		regulator-min-microvolt = <3000000>;
 		regulator-max-microvolt = <3000000>;
-		regulator-always-on;
 
 		gpio = <&msmgpio 102 GPIO_ACTIVE_HIGH>;
 		enable-active-high;
@@ -331,7 +330,6 @@
 	l6 {
 		regulator-min-microvolt = <1800000>;
 		regulator-max-microvolt = <1800000>;
-		regulator-always-on;
 	};
 
 	l7 {
