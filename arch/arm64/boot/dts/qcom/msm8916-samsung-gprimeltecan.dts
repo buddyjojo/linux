@@ -77,6 +77,27 @@
 			no-map;
 		};
 	};
+	
+    gpio-keys {
+		compatible = "gpio-keys";
+
+		pinctrl-names = "default";
+		pinctrl-0 = <&gpio_keys_default>;
+
+		label = "GPIO Buttons";
+
+		volume-up {
+			label = "Volume Up";
+			gpios = <&msmgpio 107 GPIO_ACTIVE_LOW>;
+			linux,code = <KEY_VOLUMEUP>;
+		};
+
+		home {
+			label = "Home";
+			gpios = <&msmgpio 109 GPIO_ACTIVE_LOW>;
+			linux,code = <KEY_HOMEPAGE>;
+		};
+	};
 };
 
 &blsp_i2c1 {
@@ -193,6 +214,11 @@
 
 &mdss {
 	status = "okay";
+};
+
+&pm8916_resin {
+	status = "okay";
+	linux,code = <KEY_VOLUMEDOWN>;
 };
 
 &usb {
@@ -350,6 +376,14 @@
 
 		drive-strength = <2>;
 		bias-disable;
+	};
+	
+    gpio_keys_default: gpio-keys-default {
+		pins = "gpio107", "gpio109";
+		function = "gpio";
+
+		drive-strength = <2>;
+		bias-pull-up;
 	};
 
     tsp_en_default: tsp_en_default {
