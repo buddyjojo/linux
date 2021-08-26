@@ -210,7 +210,7 @@
 	pinctrl-1 = <&mdss_sleep &bl_hack>;
 
 	panel@0 {
-		compatible = "samsung,s6d78a0_gh9607501a";
+		compatible = "samsung,s6d78a0-gh9607501a";
 		reg = <0>;
 		vreg-supply = <&pm8916_l6>;
 		vdd-supply = <&reg_lcd>;
