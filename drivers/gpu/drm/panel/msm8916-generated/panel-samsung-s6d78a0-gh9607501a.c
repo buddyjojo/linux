@@ -90,9 +90,9 @@ static int s6d78a0_gh9607501a_on(struct s6d78a0_gh9607501a *ctx)
 			  0x2a, 0x22, 0x24, 0x18, 0x0e, 0x11, 0x0c, 0x05, 0x05,
 			  0x00, 0x00, 0x0a);
 
-	ret =  mipi_dsi_dcs_exit_sleep_mode(dsi);
+	ret =  mipi_dsi_dcs_set_display_on(dsi);
 	if (ret < 0) {
-		dev_err(dev, "Failed to exit sleep mode: %d\n", ret);
+		dev_err(dev, "Failed to set display on: %d\n", ret);
 		return ret;
 	}
 	msleep(20);
@@ -101,9 +101,9 @@ static int s6d78a0_gh9607501a_on(struct s6d78a0_gh9607501a *ctx)
 	dsi_dcs_write_seq(dsi, 0xf1, 0xa5, 0xa5);
 	dsi_dcs_write_seq(dsi, 0xfc, 0x5a, 0x5a);
 
-    ret = mipi_dsi_dcs_set_display_on(dsi);
+    ret = mipi_dsi_dcs_exit_sleep_mode(dsi);
 	if (ret < 0) {
-		dev_err(dev, "Failed to set display on: %d\n", ret);
+		dev_err(dev, "Failed to exit sleep mode: %d\n", ret);
 		return ret;
 	}
 
